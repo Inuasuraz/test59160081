@@ -118,12 +118,12 @@
 
 <script>
 
-    var ab = 0;
+    var ab = 19999999;
 
     function randomNum(){
         var a = Math.floor(1000 + Math.random() * 9000);
         console.log(a);
-        var b = "Fill Number                                                     " + a;
+        var b = "Fill Number                                                                   " + a;
         document.getElementById("autobot").setAttribute("placeholder",b);
         document.getElementById("cha").innerText = a;
         ab = a;
@@ -135,7 +135,7 @@
 
         var name = document.getElementById("username").value;
         var pass = document.getElementById("password").value;
-        var auto = ab;
+        var auto = document.getElementById("password").value;
         var ch = 0;
 
         console.log(name);
