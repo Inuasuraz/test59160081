@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+
+</head>
+
+<body onload="randomNum()">
+
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title"><br>
+                    <center>Login</center>
+                </h1>
+                <h2 class="subtitle">
+                    <br>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+
+
+
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <div class="field">
+                        <p class="help" id="UserPassWrong" style="color:red"></p>
+                        <label class="label">UserName</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="" id="username">
+                        </div>
+                        <p class="help"></p>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="" id="password">
+                        </div>
+                        <p class="help"></p>
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <div class="field">
+                        <label class="label">Autobot</label>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="Fill Number                                                     7777" id="autobot">
+                            <p class="help" id="autoB" style="color:red"></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <a href="forgetpassword.html">Forgot Password ?</a>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <a class="button is-fullwidth is-success" id="login" onClick="checkinput()">Login</a>
+                    <a id="cha" style="color:white">a</a>
+                </div>
+                <div class="column"></div>
+            </div>
+        </div>
+    </section>
+    
+
+
+
+</body>
+
+<script>
+
+    var ab = 0;
+
+    function randomNum(){
+        var a = Math.floor(1000 + Math.random() * 9000);
+        console.log(a);
+        var b = "Fill Number                                                     " + a;
+        document.getElementById("autobot").setAttribute("placeholder",b);
+        document.getElementById("cha").innerText = a;
+        ab = a;
+        
+    } 
+
+    
+    function checkinput(){
+
+        var name = document.getElementById("username").value;
+        var pass = document.getElementById("password").value;
+        var auto = ab;
+        var ch = 0;
+
+        console.log(name);
+        console.log(pass);
+        console.log(auto);
+
+        if(name=="admin"){
+            ch++;
+            document.getElementById("UserPassWrong").innerHTML = "";
+            document.getElementById("username").classList.remove("is-danger");
+        }else{
+            document.getElementById("username").classList.add("is-danger");
+            document.getElementById("UserPassWrong").innerHTML = "Username or Password is wrong.";
+        }
+
+        if(pass=="1234"){
+            ch++;
+            document.getElementById("UserPassWrong").innerHTML = "";
+            document.getElementById("password").classList.remove("is-danger");
+        }else{
+            document.getElementById("password").classList.add("is-danger");
+            document.getElementById("UserPassWrong").innerHTML = "Username or Password is wrong.";
+        }
+
+        if(auto==ab){
+            ch++;
+            document.getElementById("UserPassWrong").innerHTML = "";
+            document.getElementById("autobot").classList.remove("is-danger");
+        }else{
+            document.getElementById("autobot").classList.add("is-danger");
+            document.getElementById("autoB").innerHTML = "Autobot is not match";
+        }
+
+        if(ch == "3"){
+            document.getElementById("login").setAttribute("href","loginsuccess.html");
+        }
+
+
+    }
+    
+    
+    </script>
+
+</html>
